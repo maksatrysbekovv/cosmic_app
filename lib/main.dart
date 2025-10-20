@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'splash_screen.dart';
 
-void main (){
-  runApp(MyApp());
+void main() {
+  runApp(const MyApp());
 }
 
-
 class MyApp extends StatefulWidget {
-  const MyApp({ Key? key }) : super(key: key);
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   _MyAppState createState() => _MyAppState();
@@ -15,21 +15,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Cosmic App"),
-          centerTitle: true,
-          backgroundColor: Colors.black,
-        ),
-        body: Center(
-          child: Image.asset("assets/images/plane.png"),
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SplashScreen(),
     );
   }
 }
-
-
-
-
