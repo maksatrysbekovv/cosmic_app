@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart';
+import '../../widgets/background.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -23,23 +24,19 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(Icons.star, size: 100, color: Colors.amber),
-            SizedBox(height: 20),
-            Text(
-              'Cosmic App',
-              style: TextStyle(
-                color: Colors.amber,
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
+      // backgroundColor: Colors.black,
+      body: Stack(
+        children: [
+          Background(),
+          Container(
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage('assets/images/loader.png'),
+                fit: BoxFit.cover,
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
