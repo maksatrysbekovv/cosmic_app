@@ -3,6 +3,7 @@ import 'package:flutter_1_app/ui/widgets/background.dart';
 import 'package:flutter_1_app/ui/widgets/email.dart';
 import 'package:flutter_1_app/ui/widgets/email_pass.dart';
 import 'package:flutter_1_app/core/constants/colors.dart';
+import 'package:flutter_1_app/ui/screens/home/home_page.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({super.key});
@@ -28,8 +29,12 @@ class LoginPage extends StatelessWidget {
                 child: Image.asset('assets/images/cosmic.png'),
               ),
               Container(
-                color: Colors.black.withOpacity(0.5),
-                height: 420,
+                decoration: BoxDecoration(
+                  color: Colors.black.withOpacity(0.6),
+                  borderRadius: BorderRadius.circular(25),
+                ),
+                // color: Colors.black.withOpacity(0.6),
+                height: 450,
                 padding: const EdgeInsets.symmetric(horizontal: 30),
                 child: Column(
                   children: [
@@ -47,14 +52,18 @@ class LoginPage extends StatelessWidget {
                     TextButton(
                       onPressed: null,
                       child: Text(
-                        'Forgot password?',
+                        'Forgot passwordsss?',
                         style: TextStyle(color: Colors.lightBlueAccent),
                       ),
                     ),
                     Container(
                       decoration: BoxDecoration(
                         gradient: const LinearGradient(
-                          colors: [Colors.blue, Colors.pink],
+                          colors: [
+                            Colors.lightBlueAccent,
+                            // Colors.blueAccent,
+                            Colors.purple,
+                          ],
                           begin: Alignment.topCenter,
                           end: Alignment.bottomCenter,
                         ),
@@ -62,7 +71,12 @@ class LoginPage extends StatelessWidget {
                       ),
                       child: ElevatedButton(
                         onPressed: () {
-                          print('Нажали кнопку!');
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const HomePage(),
+                            ),
+                          );
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor:
@@ -76,26 +90,111 @@ class LoginPage extends StatelessWidget {
                             borderRadius: BorderRadius.circular(25),
                           ),
                         ),
+
                         child: const Text(
                           'Sign in',
                           style: TextStyle(
                             fontSize: 18,
-                            fontWeight: FontWeight.bold,
+                            fontWeight: FontWeight.w900,
                             color: Colors.white,
                           ),
                         ),
                       ),
                     ),
+                    SizedBox(height: 10),
                     Text(
                       'or sign in using',
-                      style: TextStyle(color: Colors.white),
+                      style: TextStyle(color: AppColors.greyColor),
                     ),
+                    SizedBox(height: 10),
+
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
-                        Icon(Icons.account_circle_rounded, color: Colors.white),
-                        Icon(Icons.account_circle_rounded, color: Colors.white),
-                        Icon(Icons.account_circle_rounded, color: Colors.white),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle, // делает контейнер круглым
+                            color: const Color.fromARGB(
+                              255,
+                              27,
+                              29,
+                              43,
+                            ).withOpacity(0.5), // цвет фона (прозрачный темный)
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/twitter.png', // путь к твоей иконке
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle, // делает контейнер круглым
+                            color: const Color.fromARGB(
+                              255,
+                              27,
+                              29,
+                              43,
+                            ).withOpacity(0.5), // цвет фона (прозрачный темный)
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/facebook.png', // путь к твоей иконке
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 60,
+                          height: 60,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle, // делает контейнер круглым
+                            color: const Color.fromARGB(
+                              255,
+                              27,
+                              29,
+                              43,
+                            ).withOpacity(0.5), // цвет фона (прозрачный темный)
+                          ),
+                          child: Center(
+                            child: Image.asset(
+                              'assets/images/google.png', // путь к твоей иконке
+                              width: 40,
+                              height: 40,
+                            ),
+                          ),
+                        ),
+                        // Icon(Icons.account_circle_rounded, color: Colors.white),
+                        // Icon(Icons.account_circle_rounded, color: Colors.white),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Don't have an account?",
+                          style: TextStyle(color: AppColors.greyColor),
+                        ),
+                        TextButton(
+                          onPressed: () {
+                            print('Нажали на Sign up');
+                            // Navigator.push(context, MaterialPageRoute(builder: (_) => SignUpPage()));
+                          },
+                          child: Text(
+                            'Sign up',
+                            style: TextStyle(
+                              color: Colors.lightBlueAccent,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ],
                     ),
                   ],
