@@ -21,7 +21,6 @@ class HomePage extends StatelessWidget {
           AppBar(
             title: const Text(
               'Solar Sytemds',
-
               style: TextStyle(
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
